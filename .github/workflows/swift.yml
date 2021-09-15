@@ -11,11 +11,9 @@ env:
 
 
 on:
-  push:
+  pull_request:
     branches: [ master ]
-#   pull_request:
-#     branches: [ master ]
-#     types : [ closed ]
+    types : [ closed ]
 
 jobs:
   build:
