@@ -18,7 +18,7 @@ on:
 #     types : [ closed ]
 
 jobs:
-  merged:
+  build:
 #     if: github.event.pull_request.merged == true
     runs-on : macOS-11.5
     steps: 
