@@ -20,7 +20,7 @@ on:
 jobs:
   merged:
 #     if: github.event.pull_request.merged == true
-    runs-on : macos-11.5
+    runs-on : macOS-11.5
     steps: 
      - uses: actions/checkout@vmaster
      - name: Set Xcode Version 
