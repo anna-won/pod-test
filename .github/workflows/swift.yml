@@ -7,7 +7,7 @@ env:
   PFOJECT_FILE: ${{ 'xcworkspace' }}
   XC_VERSION: ${{ '11.6' }}
   XC_ARCHIVE: ${{ 'HoneyPot.xcarchive' }}
-  XC_SCHEME: ${{ 'HoneyPot' }}
+#   XC_SCHEME: ${{ 'HoneyPot' }}
 
 
 on:
