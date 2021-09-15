@@ -1,0 +1,14 @@
+name: master-merged-action
+
+on:
+  pull_request:
+    branches: [ master ]
+    types : [ closed ]
+
+jobs:
+  merged_build:
+    if: github.event.pull_request.merged == true
+    runs-on : macos-lastest
+    steps: 
+     -run: |
+       echo Test 
