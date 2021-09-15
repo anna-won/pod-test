@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (5.4.3)
+  - ObjectMapper (4.2.0)
+  - RxSwift (6.0.0)
+  - SwiftLint (0.43.1)
+  - SwiftyBeaver (1.9.5)
+
+DEPENDENCIES:
+  - Alamofire
+  - ObjectMapper
+  - RxSwift
+  - RxSwift (= 6.0.0)
+  - SwiftLint
+  - SwiftyBeaver
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - ObjectMapper
+    - RxSwift
+    - SwiftLint
+    - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
+
+PODFILE CHECKSUM: a4000c9aa4a7a528a62d59b722d891cd17588dda
+
+COCOAPODS: 1.10.1
