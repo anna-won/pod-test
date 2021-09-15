@@ -23,9 +23,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
-     - uses: actions/checkout@v2
-     - name: Set Xcode Version 
-       run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
+#      - uses: actions/checkout@v2
+#      - name: Set Xcode Version 
+#        run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
 #      - name : Install Dependencies 
 #        run: |
 #         pod repo update
