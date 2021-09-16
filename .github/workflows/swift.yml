@@ -16,13 +16,13 @@ env:
   KEYCHAIN_PATH: ${{ 'app-signing.keychain-db' }}
   
   KEYCHAIN: ${{ 'test.keychain' }}
-  DECRYPTED_CERTS_FILE_PATH: ${{ '.github/secrets/developCert.p12' }} 
-  ENCRYPTED_CERTS_FILE_PATH: ${{ '.github/secrets/developCert.p12.gpg' }} 
-  DECRYPTED_PROVISION_FILE_PATH: ${{ '.github/secrets/skt_wile.mobileprovision' }} 
-  ENCRYPTED_PROVISION_FILE_PATH: ${{ '.github/secrets/skt_wile.mobileprovision.gpg' }} 
-  CERTS_ENCRYPTION_PWD: ${{ secrets.SECRET_PASSWORD }} 
-  PROVISION_ENCRYPTION_PWD: ${{ secrets.SECRET_PASSWORD }} 
-  CERTS_EXPORT_PWD: ${{ secrets.SECRET_PASSWORD }}
+  DECRYPTED_CERTS_FILE_PATH: ${{ '.github/secret/developCert.p12' }} 
+  ENCRYPTED_CERTS_FILE_PATH: ${{ '.github/secret/developCert.p12.gpg' }} 
+  DECRYPTED_PROVISION_FILE_PATH: ${{ '.github/secret/skt_wile.mobileprovision' }} 
+  ENCRYPTED_PROVISION_FILE_PATH: ${{ '.github/secret/skt_wile.mobileprovision.gpg' }} 
+  CERTS_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
+  PROVISION_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
+  CERTS_EXPORT_PWD: ${{ secrets.CERT_PASSWORD }}
 
   
 
