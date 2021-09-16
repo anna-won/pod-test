@@ -2,7 +2,7 @@ name: master-merged-action
 
 env:
   PROJECT_NAME: ${{ 'PodFrameworkTest' }}
-  OUTPUTFOLDER: ${{ 'Frameworks' }}
+  OUTPUTFOLDER: ${{ './Frameworks' }}
   PROJECT_STYLE: ${{ 'workspace' }}
   PFOJECT_FILE: ${{ 'xcworkspace' }}
   XC_VERSION: ${{ '11.6' }}
@@ -26,21 +26,22 @@ jobs:
      - uses: actions/checkout@v2
 #      - name: Set Xcode Version 
 #        run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
-#      - name : Install Dependencies 
-#        run: |
-#         pod repo update
-#         pod install 
-#        shell: bash 
-     - name: Test Code
+     - name : Install Dependencies 
        run: |
-          xcodebuild test -workspace "PodFrameworkTest.xcworkspace" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=14.5"
+        pod install 
+       shell: bash 
+#      - name: Test Code
+#        run: |
+#           xcodebuild test -workspace "PodFrameworkTest.xcworkspace" -configuration "Debug" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=14.5"
+     - name: Install Cocoapods
+       run: gem install cocoapods
      - name: Archive 
        run: |
-          xcodebuild archive -$PROJECT_STYLE ${GITHUB_WORKSPACE}/$PROJECT_NAME.$PFOJECT_FILE -scheme $PROJECT_NAME -destination="generic/platform=iOS" -archivePath $OUTPUTFOLDER/ios.xcarchive -derivedDataPath /tmp/iphoneos -sdk iphoneos arch=arm64 SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES 
-          xcodebuild archive -$PROJECT_STYLE ${GITHUB_WORKSPACE}/$PROJECT_NAME.$PFOJECT_FILE -scheme $PROJECT_NAME -destination="generic/platform=iOS Simulator" -archivePath $OUTPUTFOLDER/iossimulator.xcarchive -derivedDataPath /tmp/iphonesimulator -sdk iphonesimulator arch=x86_64 SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES 
+          xcodebuild archive -$PROJECT_STYLE $PROJECT_NAME.$PFOJECT_FILE -scheme $PROJECT_NAME -configuration "Debug" -destination="generic/platform=iOS" -archivePath $OUTPUTFOLDER/ios.xcarchive -derivedDataPath /tmp/iphoneos -sdk iphoneos arch=arm64 SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES 
+          xcodebuild archive -$PROJECT_STYLE $PROJECT_NAME.$PFOJECT_FILE -scheme $PROJECT_NAME -configuration "Debug" -destination="generic/platform=iOS Simulator" -archivePath $OUTPUTFOLDER/iossimulator.xcarchive -derivedDataPath /tmp/iphonesimulator -sdk iphonesimulator arch=x86_64 SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES 
      - name: Universal Framework
        run: |
-          xcodebuild -create-xcframework -framework ${GITHUB_WORKSPACE}/$OUTPUTFOLDER/ios.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework -framework $OUTPUTFOLDER/iossimulator.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework  -output $OUTPUTFOLDER/$PROJECT_NAME.xcframework
+          xcodebuild -create-xcframework -framework $OUTPUTFOLDER/ios.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework -framework $OUTPUTFOLDER/iossimulator.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework  -output $OUTPUTFOLDER/$PROJECT_NAME.xcframework
 
 
  
