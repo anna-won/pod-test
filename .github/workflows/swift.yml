@@ -11,9 +11,9 @@ env:
   BUILD_PROVISION_PROFILE_BASE64: ${{ 'skt_wile.mobileprovision' }}
   KEYCHAIN_PASSWORD: ${{ '1111' }}
   
-  CERTIFICATE_PATH: ${{ './build_certificate.p12' }}
-  PP_PATH: ${{ 'build_pp.mobileprovision' }}
-  KEYCHAIN_PATH: ${{ 'app-signing.keychain-db' }}
+  CERTIFICATE_PATH: ${{ '.github/secret/build_certificate.p12' }}
+  PP_PATH: ${{ '.github/secret/build_pp.mobileprovision' }}
+  KEYCHAIN_PATH: ${{ '.github/secret/app-signing.keychain-db' }}
   
   KEYCHAIN: ${{ 'test.keychain' }}
   DECRYPTED_CERTS_FILE_PATH: ${{ '.github/secret/developCert.p12' }} 
@@ -22,6 +22,7 @@ env:
   ENCRYPTED_PROVISION_FILE_PATH: ${{ '.github/secret/skt_wile.mobileprovision.gpg' }} 
   
   CERTS_BASE64: ${{ secrets.DEVELOP_CERT }}
+  PROVS_BASE64: ${{ secrets.BASE64_PROVISIONING }}
   CERTS_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
   PROVISION_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
   CERTS_EXPORT_PWD: ${{ secrets.CERT_PASSWORD }}
@@ -45,6 +46,7 @@ jobs:
      - name: Base64 Test
        run: |
            echo -n "$CERTS_BASE64" | base64 --decode --output $CERTIFICATE_PATH
+           echo -n "$PROVS_BASE64" | base64 --decode --output $PP_PATH
        # echo "$CERTS_BASE64" | base64 --decode > certificate.p12
      #     echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode --output $PP_PATH
           
