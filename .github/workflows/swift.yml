@@ -21,7 +21,7 @@ env:
   DECRYPTED_PROVISION_FILE_PATH: ${{ '.github/secret/skt_wile.mobileprovision' }} 
   ENCRYPTED_PROVISION_FILE_PATH: ${{ '.github/secret/skt_wile.mobileprovision.gpg' }} 
   
-  CERTS_BASE64: ${{ 'secrets.DEVELOP_CERT' }}
+  CERTS_BASE64: ${{ secrets.DEVELOP_CERT }}
   CERTS_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
   PROVISION_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
   CERTS_EXPORT_PWD: ${{ secrets.CERT_PASSWORD }}
