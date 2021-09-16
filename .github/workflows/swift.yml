@@ -3,8 +3,8 @@ name: master-merged-action
 env:
   PROJECT_NAME: ${{ 'PodFrameworkTest' }}
   OUTPUTFOLDER: ${{ './Frameworks' }}
-  PROJECT_STYLE: ${{ 'workspace' }}
-  PFOJECT_FILE: ${{ 'xcworkspace' }}
+  PROJECT_STYLE: ${{ 'project' }}
+  PFOJECT_FILE: ${{ 'xcodeproj' }}
   XC_VERSION: ${{ '11.6' }}
   XC_ARCHIVE: ${{ 'HoneyPot.xcarchive' }}
 #   XC_SCHEME: ${{ 'HoneyPot' }}
@@ -26,15 +26,15 @@ jobs:
      - uses: actions/checkout@v2
 #      - name: Set Xcode Version 
 #        run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
-     - name : Install Dependencies 
-       run: |
-        pod install 
-       shell: bash 
-#      - name: Test Code
+#      - name : Install Dependencies 
 #        run: |
-#           xcodebuild test -workspace "PodFrameworkTest.xcworkspace" -configuration "Debug" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=14.5"
-     - name: Install Cocoapods
-       run: gem install cocoapods
+#         pod install 
+#        shell: bash 
+     - name: Test Code
+       run: |
+          xcodebuild test -project "PodFrameworkTest.xcodeproj" -configuration "Debug" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=14.5"
+#   - name: Install Cocoapods
+#        run: gem install cocoapods
      - name: Archive 
        run: |
           xcodebuild archive -$PROJECT_STYLE $PROJECT_NAME.$PFOJECT_FILE -scheme $PROJECT_NAME -configuration "Debug" -destination="generic/platform=iOS" -archivePath $OUTPUTFOLDER/ios.xcarchive -derivedDataPath /tmp/iphoneos -sdk iphoneos arch=arm64 SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES 
