@@ -24,15 +24,15 @@ jobs:
 
     steps:
      - uses: actions/checkout@v2
-     - name: Set Xcode Version 
-       run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
+#      - name: Set Xcode Version 
+#        run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
 #      - name : Install Dependencies 
 #        run: |
 #         pod install 
 #        shell: bash 
      - name: Test Code
        run: |
-          xcodebuild test -project "PodFrameworkTest.xcodeproj" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=14.4"
+          xcodebuild test -project "PodFrameworkTest.xcodeproj" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 11"
 #   - name: Install Cocoapods
 #        run: gem install cocoapods
      - name: Archive 
