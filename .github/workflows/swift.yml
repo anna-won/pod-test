@@ -26,11 +26,10 @@ jobs:
      - uses: actions/checkout@v2
 #      - name: Set Xcode Version 
 #        run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
-#      - name : Install Dependencies 
-#        run: |
-#         pod repo update
-#         pod install 
-#        shell: bash 
+     - name : Install Dependencies 
+       run: |
+        pod install 
+       shell: bash 
 #      - name: Test Code
 #        run: |
 #           xcodebuild test -workspace "PodFrameworkTest.xcworkspace" -configuration "Debug" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=14.5"
