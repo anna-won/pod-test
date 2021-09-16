@@ -5,6 +5,11 @@ env:
   OUTPUTFOLDER: ${{ './Frameworks' }}
   PROJECT_STYLE: ${{ 'project' }}
   PFOJECT_FILE: ${{ 'xcodeproj' }}
+  BUILD_CERTIFICATE_BASE64: ${{ 'developCert.p12' }}
+  P12_PASSWORD: ${{ '1111' }}
+  BUILD_PROVISION_PROFILE_BASE64: ${{ 'skt_wile.mobileprovision' }}
+  KEYCHAIN_PASSWORD: ${{ '1111' }}
+  KEYCHAIN: ${{ 'test.keychain' }}
   
 
 
@@ -22,16 +27,11 @@ jobs:
 
     steps:
      - uses: actions/checkout@v2
-     - name: Install the Apple certificate and provisioning profile
-       env:
-          BUILD_CERTIFICATE_BASE64: ${{ 'developCert.p12' }}
-          P12_PASSWORD: ${{ '1111' }}
-          BUILD_PROVISION_PROFILE_BASE64: ${{ 'skt_wile.mobileprovision' }}
-          KEYCHAIN_PASSWORD: ${{ '1111' }}
+     - name: Configure Keychain
        run: |
-          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          CERTIFICATE_PATH=./build_certificate.p12
+          PP_PATH=./build_pp.mobileprovision
+          KEYCHAIN_PATH=./app-signing.keychain-db
           echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
           echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode --output $PP_PATH
           security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
