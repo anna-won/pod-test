@@ -24,8 +24,8 @@ jobs:
 
     steps:
      - uses: actions/checkout@v2
-#      - name: Set Xcode Version 
-#        run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
+     - name: Set Xcode Version 
+       run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
 #      - name : Install Dependencies 
 #        run: |
 #         pod install 
