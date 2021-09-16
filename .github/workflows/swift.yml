@@ -32,7 +32,7 @@ jobs:
 #        shell: bash 
      - name: Test Code
        run: |
-          xcodebuild test -project "PodFrameworkTest.xcodeproj" -configuration "Debug" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=14.4"
+          xcodebuild test -project "PodFrameworkTest.xcodeproj" -scheme "PodFrameworkTest" -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=14.4"
 #   - name: Install Cocoapods
 #        run: gem install cocoapods
      - name: Archive 
