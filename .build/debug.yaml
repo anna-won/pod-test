@@ -1,0 +1,78 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<pod-test-debug.module>"]
+  "pod-test-debug.module": ["<pod-test-debug.module>"]
+  "pod-testPackageTests-debug.test": ["<pod-testPackageTests-debug.test>"]
+  "pod-testTests-debug.module": ["<pod-testTests-debug.module>"]
+  "test": ["<pod-test-debug.module>","<pod-testPackageTests-debug.test>","<pod-testTests-debug.module>"]
+default: "main"
+nodes:
+  "/Users/eunkyungwon/pod-test/Sources/pod-test/":
+    is-directory-structure: true
+  "/Users/eunkyungwon/pod-test/Tests/pod-testTests/":
+    is-directory-structure: true
+commands:
+  "<pod-test-debug.module>":
+    tool: phony
+    inputs: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.build/pod_test.swift.o","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.swiftmodule"]
+    outputs: ["<pod-test-debug.module>"]
+
+  "<pod-testPackageTests-debug.test>":
+    tool: phony
+    inputs: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod-testPackageTests.xctest/Contents/MacOS/pod-testPackageTests"]
+    outputs: ["<pod-testPackageTests-debug.test>"]
+
+  "<pod-testTests-debug.module>":
+    tool: phony
+    inputs: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests.swift.o","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.swiftmodule"]
+    outputs: ["<pod-testTests-debug.module>"]
+
+  "C.pod-test-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/eunkyungwon/pod-test/Sources/pod-test/pod_test.swift"]
+    outputs: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.build/pod_test.swift.o","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.swiftmodule"]
+    executable: "/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "pod_test"
+    module-output-path: "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.swiftmodule"
+    import-paths: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.build"
+    objects: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.build/pod_test.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx10.10","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/index/store","-sdk","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk","-F","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-Onone","-enable-testing","-g","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-emit-objc-header","-emit-objc-header-path","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.build/pod-test-Swift.h","-color-diagnostics"]
+    sources: ["/Users/eunkyungwon/pod-test/Sources/pod-test/pod_test.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 8
+
+  "C.pod-testPackageTests-debug.test":
+    tool: shell
+    inputs: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.build/pod_test.swift.o","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests.swift.o"]
+    outputs: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod-testPackageTests.xctest/Contents/MacOS/pod-testPackageTests"]
+    description: "Linking ./.build/x86_64-apple-macosx/debug/pod-testPackageTests.xctest/Contents/MacOS/pod-testPackageTests"
+    args: ["/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-sdk","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk","-F","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug","-o","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod-testPackageTests.xctest/Contents/MacOS/pod-testPackageTests","-module-name","pod_testPackageTests","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod-testPackageTests.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx","-target","x86_64-apple-macosx10.15","-Xlinker","-add_ast_path","-Xlinker","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.swiftmodule","-L","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"]
+
+  "C.pod-testTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/eunkyungwon/pod-test/Tests/pod-testTests/pod_testTests.swift","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.swiftmodule"]
+    outputs: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests.swift.o","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.swiftmodule"]
+    executable: "/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "pod_testTests"
+    module-output-path: "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.swiftmodule"
+    import-paths: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build"
+    objects: ["/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx10.15","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/index/store","-sdk","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk","-F","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Users/eunkyungwon/Downloads/Xcode 2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-Onone","-enable-testing","-g","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-color-diagnostics"]
+    sources: ["/Users/eunkyungwon/pod-test/Tests/pod-testTests/pod_testTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 8
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/eunkyungwon/pod-test/Sources/pod-test/","/Users/eunkyungwon/pod-test/Tests/pod-testTests/","/Users/eunkyungwon/pod-test/Package.swift","/Users/eunkyungwon/pod-test/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/master.swiftdeps"
+  },
+  "/Users/eunkyungwon/pod-test/Tests/pod-testTests/pod_testTests.swift": {
+    "dependencies": "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests.d",
+    "object": "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests.swift.o",
+    "swiftmodule": "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_testTests.build/pod_testTests.swiftdeps"
+  }
+}

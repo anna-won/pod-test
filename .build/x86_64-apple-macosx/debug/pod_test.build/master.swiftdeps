@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)"
+options: "62e1f7512704c690838233dc1155c15e"
+build_time: [1631753112, 117045000]
+inputs:
+  "/Users/eunkyungwon/pod-test/Sources/pod-test/pod_test.swift": [1631753095, 810059207]

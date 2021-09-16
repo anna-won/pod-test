@@ -1,0 +1,4 @@
+module pod_test {
+    header "/Users/eunkyungwon/pod-test/.build/x86_64-apple-macosx/debug/pod_test.build/pod-test-Swift.h"
+    requires objc
+}
