@@ -20,6 +20,8 @@ env:
   ENCRYPTED_CERTS_FILE_PATH: ${{ '.github/secret/developCert.p12.gpg' }} 
   DECRYPTED_PROVISION_FILE_PATH: ${{ '.github/secret/skt_wile.mobileprovision' }} 
   ENCRYPTED_PROVISION_FILE_PATH: ${{ '.github/secret/skt_wile.mobileprovision.gpg' }} 
+  
+  CERTS_BASE64: ${{ 'secrets.DEVELOP_CERT' }}
   CERTS_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
   PROVISION_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
   CERTS_EXPORT_PWD: ${{ secrets.CERT_PASSWORD }}
@@ -40,6 +42,9 @@ jobs:
 
     steps:
      - uses: actions/checkout@v2
+     - name: Base64 Test
+       run: |
+          echo CERTS_BASE64 | base64 --decode > certificate.p12
      - name: Configure Keychain
        run: |
           security create-keychain -p "" "$KEYCHAIN" 
