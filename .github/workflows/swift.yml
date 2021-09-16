@@ -12,7 +12,7 @@ env:
   KEYCHAIN: ${{ 'test.keychain' }}
   CERTIFICATE_PATH: ${{ './build_certificate.p12' }}
   PP_PATH: ${{ 'build_pp.mobileprovision' }}
-  KEYCHAIN_PATH: ${{ 'app-signing.keychain-db }}
+  KEYCHAIN_PATH: ${{ 'app-signing.keychain-db' }}
 
 
 on:
