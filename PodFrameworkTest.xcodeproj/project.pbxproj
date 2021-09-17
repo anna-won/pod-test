@@ -14,6 +14,7 @@
 		8E7209E126F300A100E0DBD1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8E7209E026F300A100E0DBD1 /* RxSwift */; };
 		8E7209E426F300C800E0DBD1 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 8E7209E326F300C800E0DBD1 /* SwiftyBeaver */; };
 		8E7209E726F300DE00E0DBD1 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 8E7209E626F300DE00E0DBD1 /* ObjectMapper */; };
+		8E7209E926F4579100E0DBD1 /* PodFrameworkTest.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8E7209E826F4579100E0DBD1 /* PodFrameworkTest.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		8E6537D326F02CA3009A6A34 /* PodFrameworkTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodFrameworkTestTests.swift; sourceTree = "<group>"; };
 		8E6537D526F02CA3009A6A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E6537DF26F07E08009A6A34 /* PodTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodTest.swift; sourceTree = "<group>"; };
+		8E7209E826F4579100E0DBD1 /* PodFrameworkTest.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFrameworkTest.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		8E6537BB26F02CA3009A6A34 = {
 			isa = PBXGroup;
 			children = (
+				8E7209E826F4579100E0DBD1 /* PodFrameworkTest.podspec */,
 				8E6537C726F02CA3009A6A34 /* PodFrameworkTest */,
 				8E6537D226F02CA3009A6A34 /* PodFrameworkTestTests */,
 				8E6537C626F02CA3009A6A34 /* Products */,
@@ -197,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E7209E926F4579100E0DBD1 /* PodFrameworkTest.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +384,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sktelecom.PodFrameworkTest;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -409,7 +413,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sktelecom.PodFrameworkTest;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
