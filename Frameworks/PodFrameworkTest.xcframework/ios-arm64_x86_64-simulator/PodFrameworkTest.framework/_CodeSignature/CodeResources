@@ -68,6 +68,10 @@
 		<data>
 		Ui/ArORttPuquM0Tx+GNuDoepQ8=
 		</data>
+		<key>PodFrameworkTest.podspec</key>
+		<data>
+		Jya+TJAyfkyDhRCxLzTUI+/dtio=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -174,6 +178,13 @@
 			<key>hash2</key>
 			<data>
 			f+wfThkuC/yZ0Zd1lVpKhrczFhgI2K9m7wpYRFP8Cz8=
+			</data>
+		</dict>
+		<key>PodFrameworkTest.podspec</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UWeTlkdfwAOJHIsYo8MPjvzi3AvgCCO8Xnc84yZxDW8=
 			</data>
 		</dict>
 	</dict>
