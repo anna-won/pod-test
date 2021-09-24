@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "PodFrameworkTest"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "A short description of PodFrameworkTest."
   spec.swift_version  = '5.0'
   spec.homepage     = "http://EXAMPLE/PodFrameworkTest"
