@@ -81,9 +81,8 @@ jobs:
        with:
           author_name: Anna
           author_email: togass7@google.com
-          message: 'Framework Add'
+          message: 'Framework Add from gitAction'
           add: './Frameworks/PodFrameworkTest.xcframework --force'
-          cwd: './Frameworks/'
 #      - name: Upload Artifact 
 #        uses: actions/upload-artifact@v2
 #        with: 
