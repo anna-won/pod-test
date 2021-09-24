@@ -1,21 +1,5 @@
 name: master-merged-action
-
-env:
-  PROJECT_NAME: ${{ 'PodFrameworkTest' }}
-  OUTPUTFOLDER: ${{ './Frameworks' }}
   
-  CERTIFICATE_PATH: ${{ '.github/secret/build_certificate.p12' }}
-  PP_PATH: ${{ '.github/secret/build_pp.mobileprovision' }}
-  KEYCHAIN: ${{ 'test.keychain' }}
-  
-  CERTS_BASE64: ${{ secrets.DEVELOP_CERT }}
-  PROVISONING_BASE64: ${{ secrets.BASE64_PROVISIONING }}
-  
-  CERTS_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
-  PROVISION_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
-  CERTS_EXPORT_PWD: ${{ secrets.CERT_PASSWORD }}
-
-
 on:
  push:
    branches: [ master ]
@@ -24,10 +8,21 @@ on:
 #     types : [ closed ]
 
 jobs:
-  build:
-#     if: github.event.pull_request.merged == true
+  certificate:
+    name: Add apple Certificate and Provisoing file 
     runs-on: macos-latest
-
+    env:
+      CERTIFICATE_PATH: ${{ '.github/secret/build_certificate.p12' }}
+      PP_PATH: ${{ '.github/secret/build_pp.mobileprovision' }}
+      KEYCHAIN: ${{ 'test.keychain' }}
+  
+      CERTS_BASE64: ${{ secrets.DEVELOP_CERT }}
+      PROVISONING_BASE64: ${{ secrets.BASE64_PROVISIONING }}
+  
+      CERTS_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
+      PROVISION_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
+      CERTS_EXPORT_PWD: ${{ secrets.CERT_PASSWORD }}
+    
     steps:
      - uses: actions/checkout@v2
      - name: Decoding Certificate and Provisioning
@@ -41,8 +36,6 @@ jobs:
           security default-keychain -s "$KEYCHAIN"
           security unlock-keychain -p "" "$KEYCHAIN"
           security set-keychain-settings
-#      - name: Set Xcode Version 
-#        run: sudo xcode-select -s /Applications/Xcode_12.5.1.app
      - name: Configure p12
        run: |    
           security import "$CERTIFICATE_PATH" -k "$KEYCHAIN" -P "$CERTS_EXPORT_PWD" -A
@@ -51,6 +44,17 @@ jobs:
        run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+    
+  build:
+#     if: github.event.pull_request.merged == true
+    name: Test, Build, Archive, Create Universal Framework 
+    runs-on: macos-latest
+    env:
+      PROJECT_NAME: ${{ 'PodFrameworkTest' }}
+      OUTPUTFOLDER: ${{ './Frameworks' }}
+      
+    steps:
+     - uses: actions/checkout@v2
      - name: Test Code
        run: |
          xcodebuild test -project "$PROJECT_NAME".xcodeproj -scheme "$PROJECT_NAME" -destination "platform=iOS Simulator,name=iPhone 11"
