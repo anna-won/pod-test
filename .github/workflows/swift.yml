@@ -61,7 +61,7 @@ jobs:
      - name: Check file existence
        uses: andstor/file-existence-action@v1
        with:
-          files: "./artifacts/ios.xcarchive/Products/Library/Frameworks/PodFrameworkTest.framework, ./artifacts/iossimulator.xcarchive/Products/Library/Frameworks/PodFrameworkTest.framework "
+          files: "./Frameworks/ios.xcarchive/Products/Library/Frameworks/PodFrameworkTest.framework, ./Frameworks/iossimulator.xcarchive/Products/Library/Frameworks/PodFrameworkTest.framework "
      - name: File exists
        if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
@@ -70,11 +70,20 @@ jobs:
      - name : universal Framework
        run: |
            xcodebuild -create-xcframework -framework "$OUTPUTFOLDER"/ios.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework -framework "$OUTPUTFOLDER"/iossimulator.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework  -output "$OUTPUTFOLDER"/"$PROJECT_NAME".xcframework          
-     - name: Upload Artifact 
-       uses: actions/upload-artifact@v2
-       with: 
-        name: Artifacts
-        path: ./artifacts
+     - name: Commit changes
+       uses: EndBug/add-and-commit@v7
+       with:
+          author_name: Anna
+          author_email: togass7@google.com
+          message: 'Framework Add'
+          add: '"$PROJECT_NAME".xcframework -- force'
+          cwd: './Frameworks/'
+#      - name: Upload Artifact 
+#        uses: actions/upload-artifact@v2
+#        with: 
+#         name: Artifacts
+#         path: ./artifacts
+
 
 
  
