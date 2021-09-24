@@ -21,8 +21,8 @@ let package = Package(
         .target(
             name: "pod-test",
             dependencies: []),
-        .binaryTarget(name: "pod-test",
-                      path: "/Frameworks/PodFrameworkTest.xcframework"),
+        .binaryTarget(name: "podFramework",
+                      path: "Frameworks/PodFrameworkTest.xcframework"),
         .testTarget(
             name: "pod-testTests",
             dependencies: ["pod-test"]),

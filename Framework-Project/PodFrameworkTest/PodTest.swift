@@ -10,7 +10,7 @@ import RxSwift
 import ObjectMapper
 import SwiftyBeaver
 
-class PodTest {
+public class PodTest {
     
     public func printHello() {
         
