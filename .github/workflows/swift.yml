@@ -67,10 +67,16 @@ jobs:
         # Only runs if all of the files exists
        run: |
           echo All files exists!
+     - name: Framework Remove
+       uses: EndBug/add-and-commit@v7
+       with:
+          author_name: Anna
+          author_email: togass7@google.com
+          remove : './Frameworks/"$PROJECT_NAME".xcframework -- force'
      - name : universal Framework
        run: |
            xcodebuild -create-xcframework -framework "$OUTPUTFOLDER"/ios.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework -framework "$OUTPUTFOLDER"/iossimulator.xcarchive/Products/Library/Frameworks/$PROJECT_NAME.framework  -output "$OUTPUTFOLDER"/"$PROJECT_NAME".xcframework          
-     - name: Commit changes
+     - name: Framework Add
        uses: EndBug/add-and-commit@v7
        with:
           author_name: Anna
