@@ -27,7 +27,6 @@ on:
 
 jobs:
   DeployFramework:
-    name: Add apple Certificate and Provisoing file 
     runs-on: macos-latest
     
     steps:
@@ -36,7 +35,7 @@ jobs:
        run: |
            echo -n "$CERTS_BASE64" | base64 --decode --output $CERTIFICATE_PATH
            echo -n "$PROVISONING_BASE64" | base64 --decode --output $PP_PATH
-       working-directory: "$FRAMEWORK_DIR"
+     
        
      - name: Configure Keychain
        run: |
@@ -45,19 +44,16 @@ jobs:
           security default-keychain -s "$KEYCHAIN"
           security unlock-keychain -p "" "$KEYCHAIN"
           security set-keychain-settings
-       working-directory: "$FRAMEWORK_DIR"
     
      - name: Configure p12
        run: |    
           security import "$CERTIFICATE_PATH" -k "$KEYCHAIN" -P "$CERTS_EXPORT_PWD" -A
           security set-key-partition-list -S apple-tool:,apple: -s -k "" "$KEYCHAIN"
-       working-directory: "$FRAMEWORK_DIR"   
     
      - name: Configure Provisioning
        run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
-       working-directory: "$FRAMEWORK_DIR"
      
      - name: Test Code
        run: |
