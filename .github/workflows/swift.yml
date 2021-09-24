@@ -24,9 +24,7 @@ on:
 
 jobs:
   DeployFramework:
-    runs-on: macos-latest
-    env:
-      working-directory: ./Framework-Poject
+    runs-on: macos-latest 
     
     steps:
      - uses: actions/checkout@v2
@@ -34,8 +32,7 @@ jobs:
        run: |
            echo -n "$CERTS_BASE64" | base64 --decode --output $CERTIFICATE_PATH
            echo -n "$PROVISONING_BASE64" | base64 --decode --output $PP_PATH
-     
-       
+           
      - name: Configure Keychain
        run: |
           security create-keychain -p "" "$KEYCHAIN"
@@ -57,7 +54,7 @@ jobs:
      - name: Test Code
        run: |
          xcodebuild test -project "$PROJECT_NAME".xcodeproj -scheme "$PROJECT_NAME" -destination "platform=iOS Simulator,name=iPhone 11"
-       working-directory: ${{ env.working-directory }}
+       working-directory: ./Framework-Poject
      
      - name: Framework Remove
        uses: EndBug/add-and-commit@v7
