@@ -12,7 +12,7 @@ env:
   PROVISION_ENCRYPTION_PWD: ${{ secrets.CERT_PASSWORD }} 
   CERTS_EXPORT_PWD: ${{ secrets.CERT_PASSWORD }}
   
-  PROJECT_NAME: ${{ 'PodFrameworkTest' }}
+  PROJECT_NAME: ${{ './Framework-Project/PodFrameworkTest' }}
   OUTPUTFOLDER: ${{ './Frameworks' }}
 
 on:
@@ -54,7 +54,6 @@ jobs:
      - name: Test Code
        run: |
          xcodebuild test -project "$PROJECT_NAME".xcodeproj -scheme "$PROJECT_NAME" -destination "platform=iOS Simulator,name=iPhone 11"
-       working-directory: ./Framework-Poject
      
      - name: Framework Remove
        uses: EndBug/add-and-commit@v7
