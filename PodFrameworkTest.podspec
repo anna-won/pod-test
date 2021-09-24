@@ -12,10 +12,10 @@ Pod::Spec.new do |spec|
   spec.name         = "PodFrameworkTest"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of PodFrameworkTest."
+  spec.swift_version  = '5.0'
   spec.homepage     = "http://EXAMPLE/PodFrameworkTest"
   
   spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-
 
   spec.author             = { "블록체인/인증개발CoE 원은경" => "togass@sk.com" }
 
@@ -35,3 +35,4 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = './Frameworks/PodFrameworkTest.xcframework'
 
 end
+
