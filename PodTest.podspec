@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
 
-  spec.name         = "PodFrameworkTest"
+  spec.name         = "PodTest"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of PodFrameworkTest."
   spec.swift_version  = '5.0'
@@ -23,7 +23,7 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/anna-won/pod-test.git", :tag => "#{spec.version}" }
   
-  spec.frameworks = 'PodFrameworkTest'
+  spec.frameworks = 'PodTest'
  
   spec.xcconfig = {
       'FRAMEWORK_SEARCH_PATHS' => './Frameworks',
