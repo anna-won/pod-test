@@ -14,9 +14,6 @@ env:
   
   PROJECT_NAME: ${{ 'PodFrameworkTest' }}
   OUTPUTFOLDER: ${{ './Frameworks' }}
-  
-  FRAMEWORK_DIR: ${{ './Framework-Project' }}
-  
 
 on:
  push:
@@ -28,6 +25,8 @@ on:
 jobs:
   DeployFramework:
     runs-on: macos-latest
+    env:
+      working-directory: ./Framework-Poject
     
     steps:
      - uses: actions/checkout@v2
@@ -58,7 +57,7 @@ jobs:
      - name: Test Code
        run: |
          xcodebuild test -project "$PROJECT_NAME".xcodeproj -scheme "$PROJECT_NAME" -destination "platform=iOS Simulator,name=iPhone 11"
-       working-directory: "$FRAMEWORK_DIR"
+       working-directory: ${{ env.working-directory }}
      
      - name: Framework Remove
        uses: EndBug/add-and-commit@v7
