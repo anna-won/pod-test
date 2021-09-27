@@ -10,6 +10,8 @@ let package = Package(
         .library(
             name: "pod-test",
             targets: ["pod-test"]),
+        .library(name: "podFramework",
+                 targets: ["podFramework"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
