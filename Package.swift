@@ -4,14 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "pod-test",
+    name: "PodTest",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "pod-test",
-            targets: ["pod-test", "PodFramework"]),
-//        .library(name: "podFramework",
-//                 targets: ["podFramework"])
+            name: "PodTest",
+            targets: ["PodTest", "PodFramework"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,12 +19,12 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "pod-test"
+            name: "PodTest"
         ),
         .binaryTarget(name: "PodFramework",
                       path: "Frameworks/PodFrameworkTest.xcframework"),
         .testTarget(
             name: "pod-testTests",
-            dependencies: ["pod-test"]),
+            dependencies: ["PodTest"]),
     ]
 )
