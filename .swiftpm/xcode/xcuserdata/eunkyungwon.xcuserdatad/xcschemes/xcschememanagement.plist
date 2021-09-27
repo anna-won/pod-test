@@ -11,6 +11,8 @@
 		</dict>
 		<key>pod-test.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -28,6 +30,11 @@
 			<true/>
 		</dict>
 		<key>pod-testTests</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>podFramework</key>
 		<dict>
 			<key>primary</key>
 			<true/>
