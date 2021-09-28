@@ -17,13 +17,16 @@ env:
   OUTPUTFOLDER: ${{ './Frameworks' }}
 
 on:
+ push: 
+   branches: [ master ]
  pull_request:
    branches: [ master ]
+   types: [ closed ]
 
 jobs:
   DeployFramework:
     runs-on: macos-latest 
-    if: github.event.pull_request.merged == true    
+   # if: github.event.pull_request.merged == true    
     steps:
      - uses: actions/checkout@v2
      - name: Decoding Certificate and Provisioning
