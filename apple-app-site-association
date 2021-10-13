@@ -1,11 +1,16 @@
 {
-	"applinks": {
-		"apps": [],
-		"details": [
-			{
-				"appID": "8BCVHFF9UB.com.sktelecom.pass",
-				"paths": [ "*"]
-			}
-		]
-	}
+  applinks: {
+    details: [
+      {      	   
+        appIDs: [
+        	"appID": "8BCVHFF9UB.com.sktelecom.pass"
+        ],
+        components: [
+            {
+                /: "*"
+            }
+        ]
+      }
+    ]
+  }
 }
